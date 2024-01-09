@@ -1,38 +1,34 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NavBar from './components/NavBar';
 import {
-  addNeworkListener,
-  addWalletListener,
-  currentWalletConnected,
-} from './helper/helper';
-import { useDispatch } from 'react-redux';
+  loadAccount,
+  loadExchangeContract,
+  loadTokenContract,
+  loadWeb3,
+} from './redux/interaction';
+
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
-    const loadBloackchain = async () => {
-      await currentWalletConnected(dispatch);
-      await addWalletListener(dispatch);
-      await addNeworkListener(dispatch);
+    const loadBlockChain = async () => {
+      const web3 = await loadWeb3(dispatch);
+      await loadAccount(web3, dispatch);
+      await loadExchangeContract(web3, dispatch);
+      await loadTokenContract(web3, dispatch);
     };
-    loadBloackchain();
-  });
+    loadBlockChain();
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
-      hello
-    </div>
+    <>
+      <ToastContainer />
+      <NavBar />
+    </>
   );
 }
 

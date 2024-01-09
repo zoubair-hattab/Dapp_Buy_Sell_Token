@@ -1,20 +1,145 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --black: #191c1b;
+  --light-black-s: #3f4944;
+  --light-black-p: #303a36;
+  --primary-green: #2fa465;
+  --white: #ffffff;
+  --border: #6e6e6e;
+  --success: #3ada84;
+  --danger: #ff7272;
+}
+body {
+  background: var(--black);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-@layer base {
-  body {
-    background-color: #f7f7f84e;
-    @apply font-poppins;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-roboto;
-  }
+.btn-success {
+  background: var(--primary-green) !important;
+}
+
+.text-danger {
+  color: var(--danger) !important;
+}
+.text-success {
+  color: var(--success) !important;
+}
+
+.card-sm {
+  width: 20%;
+}
+.card-lg {
+  width: 40%;
+}
+.card {
+  background: var(--light-black-s);
+  color: var(--white);
+  margin: 0.3rem !important;
+}
+.card-header {
+  background: var(--light-black-p);
+}
+.navbar {
+  background: var(--primary-green);
+  color: var(--white);
+  padding: 0 2rem !important;
+}
+.navbar-brand {
+  color: var(--white);
+  font-weight: 700;
+}
+.navbar-brand:hover {
+  color: var(--white);
+}
+.nav-link {
+  color: var(--white);
+  cursor: pointer;
+}
+.nav-link:hover {
+  color: var(--white);
+}
+.height-full {
+  height: 100vh;
+  overflow: auto;
+}
+.height-full::-webkit-scrollbar {
+  background: transparent; /* make scrollbar transparent */
+  width: 0px;
+}
+.height-half {
+  height: 50vh;
+  overflow: auto;
+}
+.height-half::-webkit-scrollbar {
+  background: transparent; /* make scrollbar transparent */
+  width: 0px;
+}
+.table-container table {
+  background: var(--light-black-s);
+  color: var(--white);
+}
+.table-container thead {
+  border-bottom: 1px solid var(--border);
+}
+.table-container tr {
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.timestamp {
+  color: #b9b9b9;
+  font-size: 0.8rem;
+}
+
+.order td {
+  cursor: pointer;
+  text-align: start;
+}
+
+.cancel {
+  color: #b9b9b9;
+  cursor: pointer;
+}
+
+.card-body .price-chart {
+  height: 100%;
+}
+.card-body .price {
+  height: 100%;
+}
+
+.chart {
+  height: 100%;
+  width: 100%;
+  color: var(--white);
+}
+
+text {
+  font-family: Helvetica, Arial, sans-serif;
+  text-anchor: end;
+  dominant-baseline: auto;
+  font-size: 0.7rem;
+  font-weight: 400;
+  fill: var(--white) !important;
+}
+
+.nav-tabs .nav-item .nav-link {
+  background: none !important;
+  border: none;
+  color: var(--white);
+}
+.nav-tabs .nav-item .active {
+  font-weight: bolder !important;
+  border-bottom: 3px solid #a6ffd0 !important;
+}
+
+.card-body {
+  padding: 0.6rem !important;
+}
+
+.new-order .card-body button {
+  width: 100% !important;
 }
