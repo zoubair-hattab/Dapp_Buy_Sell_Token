@@ -71,9 +71,11 @@ function depositeEther() payable public {
 tokens[ETHER][msg.sender] += msg.value;
 emit Deposite(ETHER,msg.sender,msg.value,tokens[ETHER][msg.sender]);
 }
-
+// avant de faire obligatore de 
 function depositeToken(address _token,uint256 _amount) public { 
   require(_token != ETHER,"Ether deposite not allowed");
+  // address(this)
+  //msg.sender=> address2
   require(Token(_token).transferFrom(msg.sender, address(this), _amount),"You dont have enough tokens");
   tokens[_token][msg.sender] += _amount;
   emit Deposite(_token,msg.sender,_amount,tokens[_token][msg.sender]);
